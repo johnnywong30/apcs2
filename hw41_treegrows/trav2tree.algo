@@ -1,0 +1,37 @@
+Johnny Wong
+APCS2 pd1
+HW41 -- A Tree Grows in 251
+2018-04-30
+
+Reference:
+Pre-order: Travels from Root -> Left -> Right
+In-order: Travels from Left -> Root -> Right
+Post-order: Travels from Left -> Right -> Root
+
+Algorithm for reconstructing a binary tree:
+
+Given:
+  * Pre-order traversals ( eg. EGDKINLOW )
+  * In-order traversals ( eg. EKDNIOLWG )
+  0. Find the root. The root in a pre-order traversal is the first value.
+  1. Construct node given each pre-order value, going left first until in-order traversal does not match.
+  2. Eliminate each value after creating a node from both given pre-order and in-order traversals.
+  3. Repeat steps 1 and 2 until no values remain from either given traversals.
+
+Given:
+  * Post-order traversals ( eg. UGOASLD )
+  * In-order traversals ( eg. UOGDALS )
+   0. Find the root. The root in a post-order traversal is the last value.
+   1. Split the in-order traversal into left and right partitions based on position of root.
+   2. Construct node given each in-order value, going left first and then right.
+   3. Eliminate each value after creating a node from both given post-order and in-order traversals.
+   4. Repeat steps 2 and 3 until no values remain from either given traversals.
+
+Given:
+  * Pre-order traversals ( eg. WHITEOAK )
+  * Post-order traversals ( eg. TEIHKAOW )
+  0. Find the root. The root in a post-order traversal is the last value.
+  1. Find left-most node. The left-most node in a post-order traversal is the first value.
+  2. Construct node given each pre-order value, going left first until post-order traversal does not match.
+  3. Eliminate each value after creating a node from both given pre-order and post-order traversals.
+  4. Repeat steps 2 and 3 until no values remain from either given traversals.
